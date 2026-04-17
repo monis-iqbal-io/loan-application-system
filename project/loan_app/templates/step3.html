@@ -1,0 +1,60 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<div class="container">
+    <div class="card">
+
+        <div class="title">Professional Details</div>
+        <div class="subtitle">Step 3 of 4</div>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:75%"></div>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {% if form.errors %}
+                <div class="error">Please fix the errors below</div>
+            {% endif %}
+
+            <div class="form-group">
+                <label class="label">Employment Type</label>
+                {{ form.employment_type|add_class:"input" }}
+                {% if form.employment_type.errors %}
+                    <div class="error">{{ form.employment_type.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Company Name</label>
+                {{ form.company_name|add_class:"input" }}
+                {% if form.company_name.errors %}
+                    <div class="error">{{ form.company_name.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Monthly Income</label>
+                {{ form.monthly_income|add_class:"input" }}
+                {% if form.monthly_income.errors %}
+                    <div class="error">{{ form.monthly_income.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Work Experience</label>
+                {{ form.work_experience|add_class:"input" }}
+                {% if form.work_experience.errors %}
+                    <div class="error">{{ form.work_experience.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <button class="btn">Continue →</button>
+
+        </form>
+
+    </div>
+</div>

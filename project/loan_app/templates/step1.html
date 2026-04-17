@@ -1,0 +1,68 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<div class="container">
+    <div class="card">
+
+        <div class="title">Loan Application</div>
+        <div class="subtitle">Step 1 of 4 — Basic Details</div>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:25%"></div>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {% if form.errors %}
+                <div class="error">Please fix the errors below</div>
+            {% endif %}
+
+            <div class="form-group">
+                <label class="label">Full Name</label>
+                {{ form.name|add_class:"input" }}
+                {% if form.name.errors %}
+                    <div class="error">{{ form.name.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Email</label>
+                {{ form.email|add_class:"input" }}
+                {% if form.email.errors %}
+                    <div class="error">{{ form.email.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Phone Number</label>
+                {{ form.phone|add_class:"input" }}
+                {% if form.phone.errors %}
+                    <div class="error">{{ form.phone.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Loan Amount</label>
+                {{ form.loan_amount|add_class:"input" }}
+                {% if form.loan_amount.errors %}
+                    <div class="error">{{ form.loan_amount.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Tenure (months)</label>
+                {{ form.tenure|add_class:"input" }}
+                {% if form.tenure.errors %}
+                    <div class="error">{{ form.tenure.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <button class="btn">Continue →</button>
+
+        </form>
+
+    </div>
+</div>

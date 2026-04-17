@@ -1,0 +1,56 @@
+.section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4a90e2;
+    margin-bottom: 10px;
+}
+
+/* Each row */
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.item span {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.item strong {
+    font-size: 14px;
+    color: #111827;
+}
+
+/* Highlight box */
+.highlight {
+    background: #f5f7ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Submit button */
+.submit-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #4a90e2, #6a8cff);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(74,144,226,0.25);
+}

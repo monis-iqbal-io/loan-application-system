@@ -1,0 +1,124 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/preview.css' %}">
+
+<div class="container">
+    <div class="card">
+
+        <div class="title">Review Your Application</div>
+        <div class="subtitle">Please confirm all details before submitting</div>
+
+        <!-- Basic Details -->
+        <div class="section">
+            <div class="section-title">Basic Information</div>
+
+            <div class="item">
+                <span>Name</span>
+                <strong>{{ data.name }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Email</span>
+                <strong>{{ data.email }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Phone</span>
+                <strong>{{ data.phone }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Loan Amount</span>
+                <strong>₹ {{ data.loan_amount }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Tenure</span>
+                <strong>{{ data.tenure }} months</strong>
+            </div>
+        </div>
+       
+
+        <!-- Address -->
+       <div class="section">
+            <div class="section-title">Address</div>
+
+            <div class="item">
+                <span>Address Line 1</span>
+                <strong>{{ data.address_line1 }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Address Line 2</span>
+                <strong>{{ data.address_line2|default:"-" }}</strong>
+            </div>
+
+            <div class="item">
+                <span>City</span>
+                <strong>{{ data.city }}</strong>
+            </div>
+
+            <div class="item">
+                <span>State</span>
+                <strong>{{ data.state }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Pincode</span>
+                <strong>{{ data.pincode }}</strong>
+            </div>
+        </div>
+
+        <!-- Professional -->
+        <div class="section">
+            <div class="section-title">Professional Details</div>
+
+            <div class="item">
+                <span>Employment Type</span>
+                <strong>{{ data.employment_type }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Company Name</span>
+                <strong>{{ data.company_name }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Monthly Income</span>
+                <strong>₹ {{ data.monthly_income }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Work Experience</span>
+                <strong>{{ data.work_experience }} years</strong>
+            </div>
+        </div>
+
+        <!-- Documents -->
+        <div class="section">
+            <div class="section-title">Uploaded Documents</div>
+
+            <div class="item">
+                <span>Profile Photo</span>
+                <strong>{{ data.profile_photo }}</strong>
+            </div>
+
+            <div class="item">
+                <span>ID Proof</span>
+                <strong>{{ data.id_proof }}</strong>
+            </div>
+
+            <div class="item">
+                <span>Optional Document</span>
+                <strong>{{ data.optional_doc|default:"-" }}</strong>
+            </div>
+        </div>
+
+        <form method="POST" action="{% url 'submit' %}">
+            {% csrf_token %}
+            <button class="submit-btn">Submit Application</button>
+        </form>
+
+    </div>
+</div>

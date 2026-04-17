@@ -1,0 +1,50 @@
+
+# Python
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# Virtual Environment
+
+venv/
+env/
+
+
+# Environment Variables
+
+.env
+
+
+# Django
+# Database
+db.sqlite3
+
+# Media files (user uploads)
+project/media/
+
+# Collected static files (production)
+project/staticfiles/
+
+# Logs
+
+*.log
+
+
+# VS Code / IDE
+
+.vscode/
+.idea/
+
+
+# OS Files
+
+.DS_Store
+Thumbs.db
+
+
+# Misc
+
+*.swp
+*.swo

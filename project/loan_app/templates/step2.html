@@ -1,0 +1,68 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<div class="container">
+    <div class="card">
+
+        <div class="title">Address Details</div>
+        <div class="subtitle">Step 2 of 4</div>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:50%"></div>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {% if form.errors %}
+                <div class="error">Please fix the errors below</div>
+            {% endif %}
+
+            <div class="form-group">
+                <label class="label">Address Line 1</label>
+                {{ form.address_line1|add_class:"input" }}
+                {% if form.address_line1.errors %}
+                    <div class="error">{{ form.address_line1.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Address Line 2</label>
+                {{ form.address_line2|add_class:"input" }}
+                {% if form.address_line2.errors %}
+                    <div class="error">{{ form.address_line2.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">City</label>
+                {{ form.city|add_class:"input" }}
+                {% if form.city.errors %}
+                    <div class="error">{{ form.city.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">State</label>
+                {{ form.state|add_class:"input" }}
+                {% if form.state.errors %}
+                    <div class="error">{{ form.state.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="label">Pincode</label>
+                {{ form.pincode|add_class:"input" }}
+                {% if form.pincode.errors %}
+                    <div class="error">{{ form.pincode.errors.0 }}</div>
+                {% endif %}
+            </div>
+
+            <button class="btn">Continue →</button>
+
+        </form>
+
+    </div>
+</div>

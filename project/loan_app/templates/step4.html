@@ -1,0 +1,106 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/step4.css' %}">
+
+<div class="container">
+    <div class="card">
+
+        <div class="title">Upload Documents</div>
+        <div class="subtitle">Step 4 of 4</div>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:100%"></div>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+
+            {% if form.errors %}
+                <div class="error">Please fix the errors below</div>
+            {% endif %}
+
+            <div class="upload-container">
+
+                <!-- Profile Photo -->
+                <label class="label">Profile Photo</label>
+                <div class="upload-box" onclick="document.getElementById('id_profile_photo').click()">
+                    
+                    {{ form.profile_photo|add_class:"hidden-input" }}
+                    
+                    <div class="upload-text">
+                        <strong>Click to upload</strong>
+                    </div>
+
+                    <div id="photo-name" class="file-name"></div>
+                </div>
+
+                {% if form.profile_photo.errors %}
+                    <div class="error">{{ form.profile_photo.errors.0 }}</div>
+                {% endif %}
+
+
+                <!-- ID Proof -->
+                <label class="label">ID Proof (PDF)</label>
+                <div class="upload-box" onclick="document.getElementById('id_id_proof').click()">
+                    
+                    {{ form.id_proof|add_class:"hidden-input" }}
+                    
+                    <div class="upload-text">
+                        <strong>Click to upload</strong>
+                    </div>
+
+                    <div id="id-name" class="file-name"></div>
+                </div>
+
+                {% if form.id_proof.errors %}
+                    <div class="error">{{ form.id_proof.errors.0 }}</div>
+                {% endif %}
+
+
+                <!-- Optional Doc -->
+                <label class="label">Optional Document</label>
+                <div class="upload-box" onclick="document.getElementById('id_optional_doc').click()">
+                    
+                    {{ form.optional_doc|add_class:"hidden-input" }}
+                    
+                    <div class="upload-text">
+                        Additional documents(optional)
+                    </div>
+
+                    <div id="optional-name" class="file-name"></div>
+                </div>
+
+                {% if form.optional_doc.errors %}
+                    <div class="error">{{ form.optional_doc.errors.0 }}</div>
+                {% endif %}
+
+            </div>
+
+            <button class="btn">Continue →</button>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+function showFileName(input, elementId) {
+    const fileName = input.files[0]?.name;
+    document.getElementById(elementId).innerText = fileName || '';
+}
+
+// Attach listeners after render
+document.getElementById("id_profile_photo").onchange = function() {
+    showFileName(this, "photo-name");
+};
+
+document.getElementById("id_id_proof").onchange = function() {
+    showFileName(this, "id-name");
+};
+
+document.getElementById("id_optional_doc").onchange = function() {
+    showFileName(this, "optional-name");
+};
+</script>
