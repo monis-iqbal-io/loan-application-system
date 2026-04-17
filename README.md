@@ -6,7 +6,7 @@ A full-stack Django web application that allows users to apply for loans through
 
 ##  Live Demo
 
- https://your-app.onrender.com
+https://loan-application-system-4suj.onrender.com
 
 ---
 
@@ -67,7 +67,7 @@ A full-stack Django web application that allows users to apply for loans through
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 Loan Application system/
